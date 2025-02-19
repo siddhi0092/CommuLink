@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #5DD9F2;
+    padding: 10px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+}
+
+.home-button {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Typing Animation */
+.main-title {
+    position: relative;
+    text-align: center;
+    font-size: 2rem;
+    white-space: pre-line;
+    min-height: 3rem;
+}
+
+.custom-font-size {
+    font-size: 3rem;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #5DD9F2;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4CA8C2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-bar {
+        margin-bottom: 10px;
+    }
+    .home-button {
+        margin-left: 10px;
+    }
+    .custom-font-size {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 18px;
+    }
+    .search-bar input {
+        width: 120px;
+    }
+    .custom-font-size {
+        font-size: 1.5rem;
+    }
+}
