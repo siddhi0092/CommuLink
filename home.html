@@ -1,139 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            position: relative;
-            overflow: hidden;
-        }
-        .bg-image {
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        .card-container {
-            position: relative;
-            z-index: 1;
-            margin: 20px;
-        }
-        .card {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        .text-center h1 {
-            color: white;
-            font-size: 3rem;
-            font-weight: bold;
-            white-space: pre-line;
-        }
-        .typing-animation {
-            display: inline-block;
-            white-space: pre-line;
-            overflow: hidden;
-            border-right: 2px solid white;
-            animation: blink-caret 0.75s step-end infinite;
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
-        }
-    </style>
-</head>
-<body>
-   navbar 
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-
-
-      <img src="pexels-leah-newhouse-50725-325521.jpg" alt="" class="bg-image">
-      
-      <div class="container card-container">
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-body">
-                          <h5 class="card-title">Card Title 1</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="card">
-                      <div class="card-body">
-                          <h5 class="card-title">Card Title 2</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="text-center mb-4">
-          <h1 id="typing-text" class="typing-animation"></h1>
-      </div>
-    
-      <script>
-        const text = "Connecting communities,\nOne link at a time.";
-        let index = 0;
-        function typeText() {
-            if (index < text.length) {
-                document.getElementById("typing-text").textContent += text[index];
-                index++;
-                setTimeout(typeText, 100);
-            }
-        }
-        window.onload = function() {
-            setTimeout(typeText, 500);
-        };
-      </script>
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,133 +5,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CommuLink Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="home.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-            <a class="navbar-brand bg-white text-decoration-none rounded" href="#">COMMULINK</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="mx-auto">
-                    <div class="search-bar">
-                        <i class="fas fa-bars"></i>
-                        <input type="text" placeholder="Hinted search text" />
-                        <i class="fas fa-search"></i>
-                    </div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <!-- Brand with Tooltip -->
+        <a class="navbar-brand bg-white text-decoration-none rounded" href="#" data-bs-toggle="tooltip" data-bs-placement="bottom" title="User Profile" id="commulink-brand">COMMULINK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Search Bar -->
+            <div class="mx-auto">
+                <div class="search-bar">
+                    <input type="text" placeholder="Hinted search text" />
+                    <i class="bi bi-search"></i>
                 </div>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-file-alt"></i> Business Forum</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-users"></i> Groups</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i> Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-pen"></i> Blogs and Updates</a>
-                    </li>
+            </div>
+            <!-- Nav Links -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item text-center">
+                    <a href="Business-Forum.html" class="nav-link">
+                        <i class="bi bi-briefcase-fill fs-5"></i>
+                        <span class="d-block mt-1">Business Forum</span>
+                    </a>
+                </li>
+                <li class="nav-item text-center mx-3">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-people-fill fs-5"></i>
+                        <span class="d-block mt-1">Groups</span>
+                    </a>
+                </li>
+                <li class="nav-item text-center mx-3">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-calendar2-event fs-5"></i>
+                        <span class="d-block mt-1">Events</span>
+                    </a>
+                </li>
+                <li class="nav-item text-center mx-3">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-substack fs-5"></i>
+                        <span class="d-block mt-1">Blogs</span>
+                    </a>
+                </li>
+                <li class="nav-item text-center">
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-gear fs-5"></i>
+                        <span class="d-block mt-1">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container-fluid p-5">
+    <!-- Typing Animation -->
+    <div class="main-title text-center">
+        <h1 id="typing-text" class="typing-animation custom-font-size"></h1>
+    </div>
+    <!-- Cards -->
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm hover-effect">
+                <img src="person-circle.svg" class="card-img-top" alt="Profile" />
+                <div class="card-body">
+                    <h5 class="card-title">Hi! User</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Your Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm hover-effect">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Premium" />
+                <div class="card-body">
+                    <h5 class="card-title">Boost your career with Premium</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Try Now!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Blogs Section -->
+<section class="container-fluid p-5 bg-light">
+    <h2 class="text-center mb-5">Blogs and Updates</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col">
+            <div class="card h-100 shadow-sm hover-effect">
+                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Blog" />
+                <div class="card-body">
+                    <h5 class="card-title">Blog Title 1</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat for other blog cards -->
+    </div>
+</section>
+
+<!-- ApexCharts Section -->
+<section class="container-fluid p-5 bg-sky-blue">
+    <h2 class="text-center mb-5 text-white">Your Activity of the Month</h2>
+    <div id="chart"></div>
+</section>
+
+<!-- Events and Suggestions -->
+<section class="container-fluid p-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card h-100 shadow-sm hover-effect square-card">
+                <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Events" />
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming Events</h5>
+                    <p class="card-text">Check out the latest events happening in your community.</p>
+                    <a href="#" class="btn btn-primary">View All Events</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card h-100 shadow-sm hover-effect square-card">
+                <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Suggestions" />
+                <div class="card-body">
+                    <h5 class="card-title">Suggestions</h5>
+                    <p class="card-text">Discover personalized suggestions tailored for you.</p>
+                    <a href="#" class="btn btn-primary">Explore Suggestions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white mt-5">
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="mb-3">About Us</h5>
+                <p>CommuLink is a platform dedicated to connecting communities and fostering collaboration.</p>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <h5 class="mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Business Forum</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Groups</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Events</a></li>
+                    <li><a href="#" class="text-white text-decoration-none">Blogs</a></li>
                 </ul>
             </div>
-            <div class="home-button d-none d-lg-block">
-                <i class="fas fa-home"></i>
-                <small>Home</small>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container-fluid p-5">
-
-        <!-- Typing Animation -->
-        <div class="main-title text-center">
-          <h1 id="typing-text" class="typing-animation custom-font-size"></h1>
-      </div>
-      
-        <div class="row">
-            <!-- Cards -->
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 shadow-sm hover-effect">
-                    <img src="person-circle.svg" class="card-img-top" alt="Profile Image" />
-                    <div class="card-body">
-                        <h5 class="card-title">Hi! User</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Your Profile</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 shadow-sm hover-effect">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Premium Image" />
-                    <div class="card-body">
-                        <h5 class="card-title">Boost your career with Premium</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Try Now!</a>
-                    </div>
+                <h5 class="mb-3">Contact Info</h5>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-geo-alt me-2"></i> 123 Community Street, City, Country</li>
+                    <li><i class="bi bi-telephone me-2"></i> +123 456 7890</li>
+                    <li><i class="bi bi-envelope me-2"></i> info@commulink.com</li>
+                </ul>
+                <div class="mt-3">
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
                 </div>
             </div>
         </div>
-
-    </div>
-
-    <!-- Blogs and Updates Section -->
-    <div class="container-fluid p-5 bg-light">
-        <h2 class="text-center mb-5">Blogs and Updates</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <!-- Blog Cards -->
-            <div class="col">
-                <div class="card h-100 shadow-sm hover-effect">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Blog Image" />
-                    <div class="card-body">
-                        <h5 class="card-title">Blog Title 1</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-sm hover-effect">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Blog Image" />
-                    <div class="card-body">
-                        <h5 class="card-title">Blog Title 2</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 shadow-sm hover-effect">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Blog Image" />
-                    <div class="card-body">
-                        <h5 class="card-title">Blog Title 3</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Read More</a>
-                    </div>
-                </div>
-            </div>
+        <div class="text-center mt-4 pt-3 border-top">
+            <p class="mb-0">&copy; 2025 CommuLink. All rights reserved.</p>
         </div>
     </div>
+</footer>
 
-    <script>
-        const text = "Connecting communities,\n One Link at a time.";
-        let index = 0;
-        function typeText() {
-            if (index < text.length) {
-                document.getElementById("typing-text").textContent += text[index];
-                index++;
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Typing Animation
+    const text = "Connecting communities,\n One Link at a time.";
+    const typingTextElement = document.getElementById("typing-text");
+    let index = 0;
+    let isDeleting = false;
+
+    function typeText() {
+        const currentText = text.slice(0, index);
+        typingTextElement.textContent = currentText;
+
+        if (!isDeleting) {
+            index++;
+            if (index > text.length) {
+                isDeleting = true;
+                setTimeout(typeText, 1000);
+            } else {
                 setTimeout(typeText, 100);
             }
+        } else {
+            index--;
+            if (index === 0) {
+                isDeleting = false;
+                setTimeout(typeText, 500);
+            } else {
+                setTimeout(typeText, 50);
+            }
         }
-        window.onload = function() {
-            setTimeout(typeText, 500);
-        };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    }
+
+    typeText();
+
+    // ApexCharts
+    const options = {
+        series: [{
+            name: 'Activity',
+            data: [31, 40, 28, 51, 42, 109, 100]
+        }],
+        chart: {
+            height: 350,
+            type: 'area',
+            foreColor: '#fff',
+            toolbar: { show: true },
+            background: '#1e1e1e'
+        },
+        stroke: { curve: 'smooth', colors: ['#00E396'] },
+        fill: { type: 'gradient', gradient: { shadeIntensity: 1, opacityFrom: 0.7, opacityTo: 0.3 } },
+        xaxis: { type: 'datetime', categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"] },
+        tooltip: { theme: 'dark', x: { format: 'dd/MM/yy HH:mm' } }
+    };
+
+    const chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+</script>
 </body>
 </html>
