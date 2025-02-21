@@ -1,0 +1,75 @@
+/* Custom Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f6; /* Light gray background */
+  color: #333; /* Default text color */
+}
+
+.navbar {
+  background-color: #2c3e50; /* Dark blue */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.events-page {
+  background-color: #48eaff; /* Light blue background for events section */
+  padding: 60px 0;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff; /* White background for cards */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  color: #2c3e50; /* Dark blue */
+  font-weight: bold;
+}
+
+.card-text {
+  color: #7f8c8d; /* Gray text */
+}
+
+.btn-primary {
+  background-color: #3498db; /* Bright blue */
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Calendar Styles */
+#calendar {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 15px;
+  }
+}

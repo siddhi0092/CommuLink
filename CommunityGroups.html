@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Groups - CommuLink</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="CommunityGroups.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">CommuLink</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Community Groups</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Group Chat Section -->
+  <section id="group-chat" class="group-chat py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Group Chat</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <!-- Chat Window -->
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0" id="chat-group-name">Neighborhood Watch</h5>
+            </div>
+            <div class="card-body chat-window" id="chat-window">
+              <!-- Chat Messages Loaded Dynamically -->
+            </div>
+            <!-- Chat Input -->
+            <div class="card-footer">
+              <form id="chat-form" class="d-flex">
+                <input type="text" id="chat-input" class="form-control me-2" placeholder="Type a message...">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Groups Page -->
+  <section class="community-groups py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Community Groups</h2>
+      <div class="row">
+        <!-- Joined Groups Section -->
+        <div class="col-md-6">
+          <h3 class="mb-4">Joined Groups</h3>
+          <div class="list-group" id="joined-groups">
+            <!-- Joined Groups Loaded Dynamically -->
+          </div>
+        </div>
+
+        <!-- Discover Groups Section -->
+        <div class="col-md-6">
+          <h3 class="mb-4">Discover Groups</h3>
+          <div class="list-group" id="discover-groups">
+            <!-- Group 1 -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-1">Book Lovers Club</h5>
+                <p class="mb-1 text-muted">A group for book enthusiasts to discuss their favorite reads.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="joinGroup('Book Lovers Club')">Join</button>
+            </div>
+            <!-- Group 2 -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-1">Fitness Freaks</h5>
+                <p class="mb-1 text-muted">Join this group to share fitness tips and motivate each other.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="joinGroup('Fitness Freaks')">Join</button>
+            </div>
+            <!-- Group 3 -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="mb-1">Local Foodies</h5>
+                <p class="mb-1 text-muted">A community for food lovers to share recipes and restaurant recommendations.</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="joinGroup('Local Foodies')">Join</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="CommunityGroups.js"></script>
+</body>
+</html>

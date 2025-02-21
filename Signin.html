@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - CommuLink</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="SignUpandIn.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row min-vh-100">
+      <!-- Left Side: Image -->
+      <div class="col-md-6 d-none d-md-block p-0">
+        <div class="h-100" style="background: url('https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center; background-size: cover;"></div>
+      </div>
+
+      <!-- Right Side: Sign In Form -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div class="w-75">
+          <h2 class="text-center mb-4">Sign In</h2>
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign In</button>
+          </form>
+          <p class="text-center mt-3">
+            Don't have an account? <a href="Signup.html">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
