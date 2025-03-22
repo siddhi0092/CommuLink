@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
+import { ThemeContext } from '../App'; // Import ThemeContext
 import Main from './Main';
 import ApexCharts from 'apexcharts'; // Import ApexCharts
 import { TypeAnimation } from 'react-type-animation'; // Import TypeAnimation
 import CardComponent from '../components/Card'; // Import the reusable Card component
+import { Link } from 'react-router-dom';
 import Profile from './Profile';
 
 const Home = () => {
+  const { isDarkMode } = useContext(ThemeContext); // Access theme state
+
   // Initialize the chart
   useEffect(() => {
     const options = {
@@ -16,9 +20,9 @@ const Home = () => {
       chart: {
         height: 350,
         type: 'area',
-        foreColor: '#fff', // Text color
+        foreColor: isDarkMode ? '#fff' : '#000', // Dynamic text color
         toolbar: { show: true }, // Show toolbar
-        background: '#1e1e1e' // Background color
+        background: isDarkMode ? '#1e1e1e' : '#fff' // Dynamic background color
       },
       stroke: { 
         curve: 'smooth', // Smooth curve
@@ -45,7 +49,7 @@ const Home = () => {
         ] 
       },
       tooltip: { 
-        theme: 'dark', // Tooltip theme
+        theme: isDarkMode ? 'dark' : 'light', // Dynamic tooltip theme
         x: { format: 'dd/MM/yy HH:mm' } // Date format
       }
     };
@@ -58,7 +62,7 @@ const Home = () => {
     return () => {
       chart.destroy();
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, [isDarkMode]); // Re-render chart when theme changes
 
   // Data for cards
   const profileCard = {
@@ -66,7 +70,7 @@ const Home = () => {
     title: 'Hi! User',
     description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
     buttonText: 'Your Profile',
-    to:'/Profile',
+    buttonLink: '/Profile',
   };
 
   const premiumCard = {
@@ -107,8 +111,10 @@ const Home = () => {
   return (
     <Main>
       {/* Typing Animation */}
-      <div className="main-title text-center py-20 bg-gradient-to-r from-blue-500 to-purple-600">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+      <div className={`main-title text-center py-20 bg-gradient-to-r from-blue-500 to-purple-600 ${
+        isDarkMode ? 'text-white' : 'text-white'
+      }`}>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
           Connecting communities,
           <br />
           <TypeAnimation
@@ -140,9 +146,11 @@ const Home = () => {
       </div>
 
       {/* Blogs Section */}
-      <section className="bg-gray-100 py-12">
+      <section className={`py-12 ${
+        isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'
+      }`}>
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold text-gray-800 mb-8">Blogs and Updates</h2>
+          <h2 className="text-center text-3xl font-bold mb-8">Blogs and Updates</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogCards.map((card, index) => (
               <div key={index}>
@@ -154,17 +162,27 @@ const Home = () => {
       </section>
 
       {/* ApexCharts Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-purple-600 py-12">
+      <section className={`py-12 ${
+        isDarkMode ? 'bg-gray-800' : 'bg-gradient-to-r from-blue-500 to-purple-600'
+      }`}>
         <div className="container mx-auto px-4">
-          <h2 className="text-center text-3xl font-bold text-white mb-8">Your Activity of the Month</h2>
-          <div id="chart" className="bg-white rounded-lg shadow-lg p-4">
+          <h2 className={`text-center text-3xl font-bold mb-8 ${
+            isDarkMode ? 'text-white' : 'text-white'
+          }`}>
+            Your Activity of the Month
+          </h2>
+          <div id="chart" className={`rounded-lg shadow-lg p-4 ${
+            isDarkMode ? 'bg-gray-700' : 'bg-white'
+          }`}>
             {/* Chart will render here */}
           </div>
         </div>
       </section>
 
       {/* Events and Suggestions */}
-      <section className="container mx-auto px-4 py-12">
+      <section className={`container mx-auto px-4 py-12 ${
+        isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'
+      }`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
             <CardComponent {...eventCard} />

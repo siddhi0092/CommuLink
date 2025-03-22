@@ -5,6 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
 // Custom styled card
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -19,7 +20,16 @@ const StyledCard = styled(Card)(({ theme }) => ({
   },
 }));
 
-const CardComponent = ({ image, title, description, buttonText, onClick }) => {
+const CardComponent = ({ image, title, description, buttonText, buttonLink, onClick }) => {
+  const navigate = useNavigate(); // Initialize navigate
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick(); // Use the provided onClick handler if it exists
+    } else {
+      navigate(buttonLink); // Otherwise, navigate to the buttonLink
+    }
+  };
   return (
     <StyledCard>
       {/* Card Image */}
@@ -53,7 +63,7 @@ const CardComponent = ({ image, title, description, buttonText, onClick }) => {
             backgroundColor: '#344784', // Darker color on hover
           },
         }}
-        onClick={onClick} // Handle button click
+        onClick={handleClick} // Handle button click
       >
         {buttonText}
       </Button>

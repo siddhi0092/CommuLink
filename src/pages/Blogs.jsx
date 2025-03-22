@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Rating from '../components/Rating'; // Import the Rating component
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../App'; // Import ThemeContext
 import CardComponent from '../components/Card'; // Import the CardComponent
 
 const Blogs = () => {
+  const { isDarkMode } = useContext(ThemeContext); // Access theme state
+
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all'); // 'all', 'popular', 'recent'
   const [isCreatingBlog, setIsCreatingBlog] = useState(false); // Toggle blog creation form
@@ -103,9 +104,9 @@ const Blogs = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen p-6">
+    <div className={`min-h-screen p-6 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-800'}`}>
       {/* Page Header */}
-      <div className="text-center py-12 bg-gradient-to-r from-blue-500 to-purple-600">
+      <div className={`text-center py-12 ${isDarkMode ? 'bg-gradient-to-r from-gray-800 to-gray-700' : 'bg-gradient-to-r from-blue-500 to-purple-600'}`}>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
           Blogs & Insights
         </h1>
@@ -124,7 +125,11 @@ const Blogs = () => {
               placeholder="Search blogs..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                isDarkMode
+                  ? 'bg-gray-800 border-gray-700 text-white focus:ring-blue-500'
+                  : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+              }`}
             />
           </div>
 
@@ -133,7 +138,11 @@ const Blogs = () => {
             <select
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                isDarkMode
+                  ? 'bg-gray-800 border-gray-700 text-white focus:ring-blue-500'
+                  : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+              }`}
             >
               <option value="all">All Blogs</option>
               <option value="popular">Popular</option>
@@ -147,7 +156,11 @@ const Blogs = () => {
       <div className="container mx-auto px-4 py-4">
         <button
           onClick={() => setIsCreatingBlog(!isCreatingBlog)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+          className={`px-4 py-2 rounded-lg transition-colors ${
+            isDarkMode
+              ? 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-blue-500 text-white hover:bg-blue-600'
+          }`}
         >
           {isCreatingBlog ? 'Cancel' : 'Create Blog'}
         </button>
@@ -156,64 +169,93 @@ const Blogs = () => {
       {/* Create Blog Form */}
       {isCreatingBlog && (
         <div className="container mx-auto px-4 py-4">
-          <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Create a New Blog</h2>
+          <form
+            onSubmit={handleSubmit}
+            className={`p-6 rounded-lg shadow-lg ${
+              isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+            }`}
+          >
+            <h2 className="text-2xl font-bold mb-4">Create a New Blog</h2>
             <div className="space-y-4">
               <div>
-                <label className="block text-gray-700">Title</label>
+                <label className="block">Title</label>
                 <input
                   type="text"
                   name="title"
                   value={newBlog.title}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:ring-blue-500'
+                      : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+                  }`}
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700">Description</label>
+                <label className="block">Description</label>
                 <textarea
                   name="description"
                   value={newBlog.description}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:ring-blue-500'
+                      : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+                  }`}
                   rows="4"
                   required
                 />
               </div>
               <div>
-                <label className="block text-gray-700">Tags (comma-separated)</label>
+                <label className="block">Tags (comma-separated)</label>
                 <input
                   type="text"
                   name="tags"
                   value={newBlog.tags.join(', ')}
                   onChange={handleTagsChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:ring-blue-500'
+                      : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+                  }`}
                 />
               </div>
               <div>
-                <label className="block text-gray-700">Author</label>
+                <label className="block">Author</label>
                 <input
                   type="text"
                   name="author"
                   value={newBlog.author}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:ring-blue-500'
+                      : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+                  }`}
                 />
               </div>
               <div>
-                <label className="block text-gray-700">Image URL</label>
+                <label className="block">Image URL</label>
                 <input
                   type="text"
                   name="image"
                   value={newBlog.image}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${
+                    isDarkMode
+                      ? 'bg-gray-700 border-gray-600 text-white focus:ring-blue-500'
+                      : 'bg-white border-gray-300 text-gray-800 focus:ring-blue-500'
+                  }`}
                 />
               </div>
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  isDarkMode
+                    ? 'bg-blue-600 text-white hover:bg-blue-700'
+                    : 'bg-blue-500 text-white hover:bg-blue-600'
+                }`}
               >
                 Publish Blog
               </button>

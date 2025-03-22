@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '../App'; // Import ThemeContext
 
 const Profile = () => {
   // State for user profile
@@ -13,13 +14,15 @@ const Profile = () => {
 
   // State for settings
   const [settings, setSettings] = useState({
-    theme: 'light',
     notifications: true,
     language: 'en',
   });
 
   // State for editing profile
   const [isEditing, setIsEditing] = useState(false);
+
+  // Access theme context
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
 
   // Handle input changes for profile
   const handleProfileChange = (e) => {
@@ -89,17 +92,17 @@ const Profile = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen p-6">
+    <div className={`min-h-screen p-6 ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-800'}`}>
       <div className="container mx-auto px-4">
         {/* Profile Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800">Profile</h1>
+          <h1 className="text-4xl font-bold">Profile</h1>
           <p className="text-gray-600">Manage your profile and settings here.</p>
         </div>
 
         {/* Profile Section */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Profile Details</h2>
+        <div className={`rounded-lg shadow-lg p-6 mb-8 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+          <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
           <div className="flex flex-col md:flex-row gap-6">
             {/* Profile Picture */}
             <div className="flex flex-col items-center">
@@ -127,7 +130,7 @@ const Profile = () => {
             <div className="flex-1">
               <div className="space-y-4">
                 <div>
-                  <label className="block text-gray-700 font-bold mb-2">Name</label>
+                  <label className="block font-bold mb-2">Name</label>
                   <input
                     type="text"
                     name="name"
@@ -138,7 +141,7 @@ const Profile = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-bold mb-2">Email</label>
+                  <label className="block font-bold mb-2">Email</label>
                   <input
                     type="email"
                     name="email"
@@ -149,7 +152,7 @@ const Profile = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-bold mb-2">Bio</label>
+                  <label className="block font-bold mb-2">Bio</label>
                   <textarea
                     name="bio"
                     value={user.bio}
@@ -160,7 +163,7 @@ const Profile = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-bold mb-2">Location</label>
+                  <label className="block font-bold mb-2">Location</label>
                   <div className="flex gap-2">
                     <input
                       type="text"
@@ -179,7 +182,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-gray-700 font-bold mb-2">Society</label>
+                  <label className="block font-bold mb-2">Society</label>
                   <select
                     name="society"
                     value={user.society}
@@ -216,23 +219,20 @@ const Profile = () => {
         </div>
 
         {/* Settings Section */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Settings</h2>
+        <div className={`rounded-lg shadow-lg p-6 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+          <h2 className="text-2xl font-bold mb-4">Settings</h2>
           <div className="space-y-4">
             <div>
-              <label className="block text-gray-700 font-bold mb-2">Theme</label>
-              <select
-                name="theme"
-                value={settings.theme}
-                onChange={handleSettingsChange}
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              <label className="block font-bold mb-2">Theme</label>
+              <button
+                onClick={toggleTheme}
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
               >
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
+                {isDarkMode ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+              </button>
             </div>
             <div>
-              <label className="block text-gray-700 font-bold mb-2">Notifications</label>
+              <label className="block font-bold mb-2">Notifications</label>
               <input
                 type="checkbox"
                 name="notifications"
@@ -242,7 +242,7 @@ const Profile = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700 font-bold mb-2">Language</label>
+              <label className="block font-bold mb-2">Language</label>
               <select
                 name="language"
                 value={settings.language}
